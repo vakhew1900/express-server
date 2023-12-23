@@ -1,4 +1,4 @@
-GET http://localhost:3000/api/users
+GET http://localhost:3000/api/users/a7bc8971-71c6-445f-b71f-c2019a0eff93
 
 ###
 
@@ -7,6 +7,25 @@ Content-Type: application/json
 
 {
   "email": "test1@mail.ru",
+  "password": "123456"
+}
+
+###
+
+POST http://localhost:3000/api/users/login
+Content-Type: application/json
+
+{
+  "email": "test1@mail.ru",
+  "password": "123456"
+}
+
+### 
+POST http://localhost:3000/api/users/signup
+Content-Type: application/json
+
+{
+  "email": "test123@mail.ru",
   "password": "123456"
 }
 

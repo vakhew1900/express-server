@@ -35,6 +35,7 @@ usersRouter.get('/:id', verifyToken, isSelf, async (req, res) => {
       id,
     },
   })
+  console.log('yes yes yes')
   res.json(user)
 })
 

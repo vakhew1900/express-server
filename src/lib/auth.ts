@@ -12,6 +12,7 @@ export async function verifyToken(
   next: NextFunction,
 ) {
   const token = req.cookies?.token
+  console.log(req.cookies)
   if (typeof token === 'string') {
     // bearerToken = 'Bearer ' + token
     try {
@@ -49,7 +50,10 @@ export function setToken(res: Response, data: object) {
   res.cookie('token', `Bearer ${token}`, {
     httpOnly: true,
     maxAge: 1000 * 60 * 60 * 24,
-    secure: process.env.NODE_ENV === 'production',
+    sameSite: false,
+    signed: false,
+    secure: false,
+    // secure: process.env.NODE_ENV === 'production',
   })
   res.sendStatus(200)
 }
@@ -72,6 +76,7 @@ export async function isSelf(
     // return res.sendStatus(403)
     throw new createHttpError.Forbidden()
   }
+  console.log('FFFFFFFF')
   next()
 }
 
